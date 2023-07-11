@@ -24,7 +24,18 @@ app.post('/dogs',(req,res)=>{
 
 })
 
-app.put('dogs',(req,res)=>{
+app.put('/dogs',(req,res)=>{
+    res.send('Dogs are updated')
+})
+
+app.delete('/dogs',(req,res)=>{
     res.send('Dogs are deleted')
 })
+
+app.get('/dogs/:dogId', (req,res)=>{
+
+   
+    res.send(`<h1> Hello Dogs - ID ${req.params.dogId}</h1>`)
+})
 app.listen(5000, () => console.log('Server is listening on port 5000...'));
+ 
