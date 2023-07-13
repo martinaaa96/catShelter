@@ -31,16 +31,15 @@ app.put('/dogs', (req, res) => {
 app.delete('/dogs', (req, res) => {
     res.send('Dogs are deleted')
 })
-
-app.get('/dogs/:dogId', (req, res, next) => {
-    let dogId = Number(req.params.dogId);
+let validateDogIdMiddleware = (req,res,next)=>{
+    let dogId = Number(res.params.dogId)
     if (!dogId) {
-        res.send('Invalid DogId!')
-    } else {
-        next();
-    }
-
-}, (req, res) => {
+   
+       return res.send('Invalid DogId!')
+       }
+       next();
+}
+app.get('/dogs/:dogId',validateDogIdMiddleware,( req, res) => {
 
     res.send(`<h1> Hello Dogs - ID ${req.params.dogId}</h1>`)
 });
