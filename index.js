@@ -1,7 +1,7 @@
 const express = require('express');
-const res = require('express/lib/response');
 
 const app = express();
+
 
 app.get('/', (req, res) => {
 
@@ -31,15 +31,8 @@ app.put('/dogs', (req, res) => {
 app.delete('/dogs', (req, res) => {
     res.send('Dogs are deleted')
 })
-let validateDogIdMiddleware = (req,res,next)=>{
-    let dogId = Number(res.params.dogId)
-    if (!dogId) {
-   
-       return res.send('Invalid DogId!')
-       }
-       next();
-}
-app.get('/dogs/:dogId',validateDogIdMiddleware,( req, res) => {
+
+app.get('/dogs/:dogId', (req, res) => {
 
     res.send(`<h1> Hello Dogs - ID ${req.params.dogId}</h1>`)
 });
