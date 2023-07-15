@@ -12,7 +12,10 @@ app.use(express.static('./src/public'));
 
 app.get('/', (req, res) => {
 
-    res.render('home');
+    res.render('index');
 });
+app.get('/create', (req,res)=>{
+    res.render('create');
 
+})
 app.listen(config.PORT, () => console.log(`Server is listening on port ${config.PORT}...`));
