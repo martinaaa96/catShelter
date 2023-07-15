@@ -8,6 +8,7 @@ const app = express();
 setupViewEngine(app);
 
 // second option  - require('./config/viewEngine')(app);
+app.use(express.static('./src/public'));
 
 app.get('/', (req, res) => {
 
