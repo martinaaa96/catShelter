@@ -8,5 +8,7 @@ const router = require('express').Router();
 router.get('/', homeController.getHomePage);
 router.get('/create', catController.getCreateCat);
 
-router.post('/create', catController.postCreateCat)
+router.post('/create', catController.postCreateCat);
+
+router.get('/details/:catId',catController.getDetails)
 module.exports = router;

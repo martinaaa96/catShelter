@@ -1,4 +1,6 @@
-const Cat = require('../models/Cat')
+const Cat = require('../models/Cat');
+const db = require('../db.json');
+
 
 exports.getCreateCat = (req, res) => {
 
@@ -15,5 +17,15 @@ exports.postCreateCat = (req, res) => {
 
     cat.save()
     res.redirect('/')
+}
+
+exports.getDetails = (req, res) => {
+
+    let catId = Number(req.params.catId);
+    let cat = db.cats.find(x => x.id === catId);
+
+
+
+    res.render('details', { cat });
 }
 
