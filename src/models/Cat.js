@@ -1,4 +1,4 @@
-const fs = require('fs/promises')
+const fs = require('fs')
 
 const db = require('../db.json');
 const path = require('path');
@@ -11,12 +11,17 @@ class Cat {
         this.breed = breed;
 
     }
-    static save(cats) {
+    static save(cat) {
 
-        db.cats.push(cats);
+        this.id = db.cats[db.cats.length - 1].id + 1;
+
+
+        db.cats.push(this);
+
         const jsonData = JSON.stringify(db, null, 2);
 
-        fs.writeFileSync(path.resolve(__dirname, '../db.json'), jsonData)
+        fs.writeFileSync(path.resolve(__dirname, '../db.json'), jsonData);
+
     }
 
 }

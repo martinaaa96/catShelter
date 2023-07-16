@@ -8,8 +8,12 @@ exports.getCreateCat = (req, res) => {
 }
 
 exports.postCreateCat = (req, res) => {
-    let cat = new Cat(req.body);
-Cat.save(cat)
+    const { name, description, image } = req.body
+    let breed = req.body.breed
+    let cat = new Cat(name, description, image, breed)
 
-    res.redirect('/');
+
+    cat.save()
+    res.redirect('/')
 }
+
