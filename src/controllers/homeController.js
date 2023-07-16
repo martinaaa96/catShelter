@@ -2,7 +2,16 @@ const db = require('../db.json')
 
 
 exports.getHomePage = (req, res) => {
-    res.render('index', { cats: db.cats })
+    const { search } = req.query;
+    let cats = db.cats;
+    if (search) {
+        cats = cats.filter(cat => cat.name.toLowerCase().includes(search.toLowerCase()));
+    }
+
+    res.render('index', { cats, search });
+
 };
 
-
+exports.getErrorPage = (req, res) => {
+    res.render('404')
+}

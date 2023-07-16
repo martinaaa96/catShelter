@@ -11,7 +11,7 @@ class Cat {
         this.breed = breed;
 
     }
-    static save(cat) {
+  save() {
 
         this.id = db.cats[db.cats.length - 1].id + 1;
 
