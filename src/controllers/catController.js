@@ -14,7 +14,7 @@ exports.postCreateCat = (req, res) => {
     let cat = new Cat(name, description, image,breed)
 
 
-    cat.save()
+    cat.save(cat)
     res.redirect('/')
 }
 exports.getBreedCreate = (req,res)=>{
@@ -25,8 +25,9 @@ exports.postBreedCreate = (req,res)=>{
     const breed = req.body.breed;
     let newBreed = new Breeds(breed);
     
-    newBreed.save();
-    res.redirect('/')
+    newBreed.save(newBreed);
+    res.redirect('/');
+    
 
 }
 exports.getDetails = (req, res) => {
