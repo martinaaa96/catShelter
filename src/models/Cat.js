@@ -8,21 +8,14 @@ const catSchema = new Schema({
     description: {
         type: String,
         required: true,
-        maxLenght: 20,
+        minLenght: 5,
 
     },
-    imageUrl: {
+    image: {
         type: String,
         required: true,
         // add http/https
     },
-    breed: {
-        type: String,
-        required: true,
-        maxLenght: 10,
-        minLenght: 5,
-
-    }
 });
 
 const Cat = model('Cat', catSchema);
