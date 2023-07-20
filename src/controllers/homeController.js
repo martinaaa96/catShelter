@@ -13,5 +13,5 @@ exports.getHomePage = async (req, res) => {
 };
 
 exports.getErrorPage = (req, res) => {
-    res.render('404')
+    res.render('404');
 }
