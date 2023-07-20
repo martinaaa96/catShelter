@@ -1,9 +1,9 @@
-const db = require('../db.json')
+//const db = require('../db.json')
+const Cat = require('../models/Cat')
 
-
-exports.getHomePage = (req, res) => {
+exports.getHomePage = async (req, res) => {
     const { search } = req.query;
-    let cats = db.cats;
+    let cats = await Cat.find();
     if (search) {
         cats = cats.filter(cat => cat.name.toLowerCase().includes(search.toLowerCase()));
     }

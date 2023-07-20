@@ -7,13 +7,13 @@ const catSchema = new Schema({
     },
     description: {
         type: String,
-        required: true,
-        minLenght: 5,
+        
+      
 
     },
     image: {
         type: String,
-        required: true,
+       
         // add http/https
     },
 });
