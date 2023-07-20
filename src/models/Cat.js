@@ -1,30 +1,30 @@
-const fs = require('fs')
+const { Schema,model } = require('mongoose');
 
-const db = require('../db.json');
-const path = require('path');
+const catSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+        maxLenght: 20,
 
-class Cat {
-    constructor(name, description, image, breed) {
-        this.name = name;
-        this.description = description;
-        this.image = image;
-        this.breed = breed;
+    },
+    imageUrl: {
+        type: String,
+        required: true,
+        // add http/https
+    },
+    breed: {
+        type: String,
+        required: true,
+        maxLenght: 10,
+        minLenght: 5,
 
     }
-  save() {
+});
 
-        this.id = db.cats[db.cats.length - 1].id + 1;
-
-
-        db.cats.push(this);
-
-        const jsonData = JSON.stringify(db, null, 2);
-
-        fs.writeFileSync(path.resolve(__dirname, '../db.json'), jsonData);
-
-    }
-
-}
+const Cat = model('Cat', catSchema);
 
 module.exports = Cat;
-

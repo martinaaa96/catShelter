@@ -1,10 +1,12 @@
-const express = require('express');
-const catController = require('./controllers/catController');
-//const Router = express.Router;
-//const router= Router();
-const homeController = require('./controllers/homeController');
 
 const router = require('express').Router();
+
+//const Router = express.Router;
+//const router= Router();
+const catController = require('./controllers/catController');
+const homeController = require('./controllers/homeController');
+
+
 
 router.get('/', homeController.getHomePage);
 
