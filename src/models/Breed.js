@@ -2,8 +2,11 @@ const mongoose = require('mongoose');
 
 const breedSchema = new mongoose.Schema({
 
-    name: String,
-    required: true,
+    name: {
+        type: String,
+        required: true,
+    },
+
 
 });
 
