@@ -12,8 +12,8 @@ router.get('/', homeController.getHomePage);
 
 router.get('/404',homeController.getErrorPage);
 
-router.get('/create', catController.getCreateCat);
-router.post('/create', catController.postCreateCat);
+router.get('/cats/create', catController.getCreateCat);
+router.post('/cats/create', catController.postCreateCat);
 
 router.get('/details/:catId',catController.getDetails);
 
