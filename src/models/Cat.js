@@ -15,10 +15,7 @@ const catSchema = new mongoose.Schema({
 
         // add http/https
     },
-    breed: {
-        type: String,
-       
-    },
+   
 
 });
 
