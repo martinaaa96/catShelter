@@ -12,7 +12,7 @@ setupViewEngine(app);
 
 // second option  - require('./config/viewEngine')(app);
 app.use(express.static('src/public'));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false})); 
 app.use(routes);
 
 

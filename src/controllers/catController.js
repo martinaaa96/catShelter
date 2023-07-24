@@ -9,10 +9,12 @@ exports.getCreateCat = (req, res) => {
     res.render('create');
 }
 
-exports.postCreateCat = async (req, res) => {
-    const { name, description, image, breed } = req.body
 
-    let cat = new Cat( {name, description, image, breed} );
+exports.postCreateCat = async (req, res) => {
+    const { name, description, image} = req.body
+    let breed = req.body.breed
+    let cat = new Cat({name, description, image, breed})
+   // let cat = new Cat( {name, description, image,breed} );
 
 
     await cat.save();
