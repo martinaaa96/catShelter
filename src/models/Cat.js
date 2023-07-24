@@ -1,21 +1,27 @@
-const { Schema,model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const catSchema = new Schema({
+const catSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
+        minLength: 4,
     },
     description: {
         type: String,
-        
+
     },
     image: {
         type: String,
-       
+
         // add http/https
     },
+    breed: {
+        type: String,
+       
+    },
+
 });
 
-const Cat = model('Cat', catSchema);
+const Cat = mongoose.model('Cat', catSchema);
 
 module.exports = Cat;
