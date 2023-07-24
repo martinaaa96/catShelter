@@ -9,7 +9,7 @@ router.get('/create', (req, res) => {
 });
 
 router.post('/create', async (req, res) => {
-    let breed = req.body;
+    const { breed } = req.body;
     let newBreed = new Breed({ breed });
     // let cat = new Cat( {name, description, image,breed} );
 
