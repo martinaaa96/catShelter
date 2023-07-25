@@ -14,7 +14,7 @@ exports.postCreateCat = async (req, res) => {
     const { name, description, image} = req.body
     let breed = req.body.breed
     let cat = new Cat({name, description, image, breed})
-   // let cat = new Cat( {name, description, image,breed} );
+   
 
 
     await cat.save();
