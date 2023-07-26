@@ -8,14 +8,25 @@ const catSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-
+        required: true,
+        maxLength: 50
     },
     image: {
         type: String,
+        required: true,
+        validate: {
+            validator: function (value) {
+                return value.startsWith('http://') || value.startsWith('https://');
+            },
+            message: 'URL is invalid!'
+        }
 
-        // add http/https
     },
-   
+breed: {
+    type: String,
+    required: true,
+    minLength: 5,
+}
 
 });
 
